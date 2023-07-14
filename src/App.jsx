@@ -1,7 +1,14 @@
-import { useFonts } from '@/hooks/';
+// import CssBaseline from '@mui/material/CssBaseline';
+
+import { useFonts } from 'hooks/';
 
 export const App = () => {
     useFonts();
 
-    return <div>HELLO WORLD!</div>;
+    return (
+        <>
+            {/* <CssBaseline /> */}
+            <div>HOME</div>
+        </>
+    );
 };
