@@ -4,5 +4,5 @@ import includePaths from 'rollup-plugin-includepaths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react(), includePaths({ paths: ['./'] })],
+    plugins: [react(), includePaths({ paths: ['./src'] })],
 });

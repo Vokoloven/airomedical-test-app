@@ -1,3 +1,4 @@
 import { useFonts } from './useFonts';
+import { useFetch } from './useFetch';
 
-export { useFonts };
+export { useFonts, useFetch };
