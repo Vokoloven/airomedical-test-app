@@ -8,6 +8,6 @@ export const getApiData = async (params) => {
 
         return data;
     } catch (error) {
-        console.log(error);
+        throw new Error(error);
     }
 };

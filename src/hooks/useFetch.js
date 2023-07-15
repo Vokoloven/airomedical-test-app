@@ -3,14 +3,24 @@ import { getApiData } from 'service';
 import { useBeerStore } from 'zustandStore';
 
 export const useFetch = () => {
-    const { setData } = useBeerStore((state) => state);
+    const { setData, setLoading } = useBeerStore((state) => state);
     const isFirstRender = useRef(true);
 
     useEffect(() => {
+        setLoading({ status: 'pending', errorMessage: '' });
         const getData = async (page) => {
-            const data = await getApiData(page);
+            try {
+                const data = await getApiData(page);
+                setData(data);
 
-            setData(data);
+                setLoading({ status: 'succeeded' });
+            } catch (error) {
+                error &&
+                    setLoading({
+                        status: 'failed',
+                        errorMessage: error.message,
+                    });
+            }
         };
 
         if (isFirstRender.current) {
@@ -20,5 +30,5 @@ export const useFetch = () => {
                 isFirstRender.current = false;
             };
         }
-    }, [setData]);
+    }, [setData, setLoading]);
 };

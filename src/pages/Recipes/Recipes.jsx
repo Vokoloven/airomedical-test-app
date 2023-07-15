@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
 import { ResponsiveGrid } from 'components/Grid';
 import Box from '@mui/material/Box';
-import { useFetch } from 'hooks';
+import { useRecipeData } from 'hooks';
 import { useBeerStore } from 'zustandStore';
 import { handleData, isRecipeInDeletedList } from 'helpers';
 
-const Home = () => {
-    useFetch();
+const Recipes = () => {
     const { data } = useBeerStore((state) => state);
     const [selectedData, setSelectedData] = useState([]);
     const [deletedData, setDeletedData] = useState([]);
+    useRecipeData(selectedData, deletedData);
+
+    useEffect(() => {
+        setSelectedData(data);
+    }, [data]);
 
     const multiplySelection = (id, e) => {
         if (e.nativeEvent.button === 0) {
@@ -28,14 +32,10 @@ const Home = () => {
         }
     };
 
-    useEffect(() => {
-        setSelectedData(data);
-    }, [data]);
-
     return (
         <Box sx={{ px: 3 }}>
             <ResponsiveGrid
-                data={data}
+                data={data.slice(0, 15)}
                 deletedData={deletedData}
                 multiplySelection={multiplySelection}
             />
@@ -43,4 +43,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Recipes;

@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions, Button } from '@mui/material';
 import { deepPurple, red } from '@mui/material/colors';
 import { isRecipeInDeletedList } from 'helpers';
+import { StyledNavLink } from 'components/NavLink';
 
 export const ActionAreaCard = ({
     recipe: { id, image_url, name, description },
@@ -22,28 +23,32 @@ export const ActionAreaCard = ({
             onClick={multiplySelection.bind(null, id)}
             onContextMenu={multiplySelection.bind(null, id)}
         >
-            <CardActionArea sx={{ color: deepPurple[500] }}>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={image_url}
-                    alt="green iguana"
-                    sx={{ objectFit: 'contain' }}
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {name?.length > 25
-                            ? `${name
-                                  .slice(0, 20)
-                                  .replace(/[.|,]|\s$/gm, '')}...`
-                            : name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {description.slice(0, 80).replace(/[.|,|-]|\s$/gm, '')}
-                        ...
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
+            <StyledNavLink to={`recipe/${id}`}>
+                <CardActionArea sx={{ color: deepPurple[500] }}>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={image_url}
+                        alt="green iguana"
+                        sx={{ objectFit: 'contain' }}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {name?.length > 25
+                                ? `${name
+                                      .slice(0, 20)
+                                      .replace(/[.|,]|\s$/gm, '')}...`
+                                : name}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {description
+                                .slice(0, 80)
+                                .replace(/[.|,|-]|\s$/gm, '')}
+                            ...
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </StyledNavLink>
         </Card>
     );
 };
