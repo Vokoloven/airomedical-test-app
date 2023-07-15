@@ -11,29 +11,8 @@ export const ResponsiveGrid = ({
     multiplySelection,
     loading,
 }) => {
-    // const media = () => {
-    //     if (loading.status === 'pending') {
-    //         return Array.from(Array(15)).map((_, index) => (
-    //             <Grid item xs={3} sm={4} md={3.5} key={index}>
-    //                 <CustomSkeleton />
-    //             </Grid>
-    //         ));
-    //     }
-    //     if (loading.status === 'succeeded') {
-    //         return data.map((recipe) => (
-    //             <Grid item xs={3} sm={4} md={3.5} key={recipe.id}>
-    //                 <ActionAreaCard
-    //                     recipe={recipe}
-    //                     multiplySelection={multiplySelection}
-    //                     deletedData={deletedData}
-    //                 />
-    //             </Grid>
-    //         ));
-    //     }
-    // };
-
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, pb: data?.length > 0 && 3 }}>
             <Grid
                 container
                 spacing={{ xs: 2, md: 3 }}
@@ -49,7 +28,6 @@ export const ResponsiveGrid = ({
                     multiplySelection,
                     deletedData
                 )}
-                {/* {media()} */}
             </Grid>
         </Box>
     );

@@ -19,13 +19,20 @@ const BasicAppBar = () => {
                 as={'header'}
                 sx={{
                     flexGrow: 1,
-                    ...(sticky ? { pt: '176px' } : { pb: 3 }),
+                    ...(sticky ? { pt: '176px', pb: 0 } : { pt: 0, pb: 3 }),
                 }}
             >
                 <AppBar
                     sx={{
-                        position: sticky ? 'fixed' : 'static',
                         bgcolor: deepPurple[500],
+                        ...(sticky
+                            ? {
+                                  position: 'fixed',
+                                  bgcolor: 'rgba(103, 58, 183, 0.5)',
+                              }
+                            : {
+                                  position: 'relative',
+                              }),
                     }}
                 >
                     <Toolbar>

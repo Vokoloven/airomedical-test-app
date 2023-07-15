@@ -13,7 +13,7 @@ const Recipes = () => {
 
     useEffect(() => {
         setSelectedData(data);
-}, [data]);
+    }, [data]);
 
     const multiplySelection = (id, e) => {
         if (e.nativeEvent.button === 0) {

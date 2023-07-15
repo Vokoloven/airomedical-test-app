@@ -4,8 +4,8 @@ export const useSticky = () => {
     const [sticky, setSticky] = useState(false);
 
     const isSticky = () => {
-        const scrollTop = window.scrollY;
-        scrollTop > 64 ? setSticky(true) : setSticky(false);
+        const scroll = window.scrollY;
+        scroll >= 64 ? setSticky(true) : setSticky(false);
     };
 
     useEffect(() => {
