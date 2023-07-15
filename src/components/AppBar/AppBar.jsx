@@ -5,12 +5,26 @@ import Typography from '@mui/material/Typography';
 import { deepPurple } from '@mui/material/colors';
 import SportsBarIcon from '@mui/icons-material/SportsBar';
 import { Outlet } from 'react-router-dom';
+import { useSticky } from 'hooks';
 
 const BasicAppBar = () => {
+    const sticky = useSticky();
+
     return (
         <>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static" sx={{ bgcolor: deepPurple[500] }}>
+            <Box
+                as={'header'}
+                sx={{
+                    flexGrow: 1,
+                    ...(sticky ? { pt: '176px' } : { pb: 3 }),
+                }}
+            >
+                <AppBar
+                    sx={{
+                        position: sticky ? 'fixed' : 'static',
+                        bgcolor: deepPurple[500],
+                    }}
+                >
                     <Toolbar>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                             <SportsBarIcon />

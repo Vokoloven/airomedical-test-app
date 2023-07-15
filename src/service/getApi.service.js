@@ -6,7 +6,6 @@ export const getApiData = async (params) => {
 
         const { data } = response;
 
-        console.log(params);
         return data;
     } catch (error) {
         console.log(error);
