@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions, Button } from '@mui/material';
+import { CardActionArea } from '@mui/material';
 import { deepPurple, red } from '@mui/material/colors';
 import { isRecipeInDeletedList } from 'helpers';
 import { StyledNavLink } from 'components/NavLink';
@@ -29,8 +29,9 @@ export const ActionAreaCard = ({
                         component="img"
                         height="140"
                         image={image_url}
-                        alt="green iguana"
+                        alt={'beer'}
                         sx={{ objectFit: 'contain' }}
+                        loading={'lazy'}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">

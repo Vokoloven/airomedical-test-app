@@ -6,14 +6,14 @@ import { useBeerStore } from 'zustandStore';
 import { handleData, isRecipeInDeletedList } from 'helpers';
 
 const Recipes = () => {
-    const { data } = useBeerStore((state) => state);
+    const { data, loading } = useBeerStore((state) => state);
     const [selectedData, setSelectedData] = useState([]);
     const [deletedData, setDeletedData] = useState([]);
     useRecipeData(selectedData, deletedData);
 
     useEffect(() => {
         setSelectedData(data);
-    }, [data]);
+}, [data]);
 
     const multiplySelection = (id, e) => {
         if (e.nativeEvent.button === 0) {
@@ -38,6 +38,7 @@ const Recipes = () => {
                 data={data.slice(0, 15)}
                 deletedData={deletedData}
                 multiplySelection={multiplySelection}
+                loading={loading}
             />
         </Box>
     );
