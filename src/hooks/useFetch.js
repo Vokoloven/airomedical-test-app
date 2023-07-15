@@ -1,10 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getApiData } from 'service';
 import { useBeerStore } from 'zustandStore';
 
 export const useFetch = () => {
-    const { setData, setLoading } = useBeerStore((state) => state);
+    const [page, setPage] = useState(1);
+    const { setData, setLoading, data } = useBeerStore((state) => state);
     const isFirstRender = useRef(true);
+
+    useEffect(() => {
+        if (!isFirstRender.current && data?.length === 0) {
+            setPage((prevPage) => prevPage + 1);
+        }
+    }, [data?.length]);
 
     useEffect(() => {
         setLoading({ status: 'pending', errorMessage: '' });
@@ -24,11 +31,15 @@ export const useFetch = () => {
         };
 
         if (isFirstRender.current) {
-            getData({ page: 1 });
+            getData({ page });
 
             return () => {
                 isFirstRender.current = false;
             };
+        } else if (page > 1 && !isFirstRender.current) {
+            getData({ page });
         }
-    }, [setData, setLoading]);
+    }, [page, setData, setLoading]);
+
+    console.log(data);
 };
