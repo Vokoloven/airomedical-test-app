@@ -23,6 +23,8 @@ For stilization i used **[MUI](https://mui.com/)**.
 
 Anyway don't hesitate to contact me, you can find my contacts [here](https://github.com/Vokoloven).
 
+---
+
 ### Additional options
 
 -   [x] #739
