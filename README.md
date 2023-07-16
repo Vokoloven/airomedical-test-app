@@ -27,6 +27,6 @@ Anyway don't hesitate to contact me, you can find my contacts [here](https://git
 
 ### Additional options
 
--   [x] #739
+-   [x] \#739
 -   [ ] https://github.com/octo-org/octo-repo/issues/740
 -   [ ] Add delight to the experience when all tasks are complete :tada:
