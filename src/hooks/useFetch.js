@@ -40,6 +40,4 @@ export const useFetch = () => {
             getData({ page });
         }
     }, [page, setData, setLoading]);
-
-    console.log(data);
 };

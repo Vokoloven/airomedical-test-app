@@ -11,18 +11,12 @@ const Recipes = () => {
     const [deletedData, setDeletedData] = useState([]);
     useRecipeData(selectedData, deletedData, setDeletedData);
 
-
-
     useEffect(() => {
         setSelectedData(data);
     }, [data]);
 
     const multiplySelection = (id, e) => {
-        if (e.nativeEvent.button === 0) {
-            console.log('Left click');
-        } else if (e.nativeEvent.button === 2) {
-            console.log('Left click');
-
+        if (e.nativeEvent.button === 2) {
             handleData(
                 isRecipeInDeletedList(deletedData, id),
                 selectedData,
