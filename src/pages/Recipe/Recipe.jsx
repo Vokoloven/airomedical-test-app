@@ -33,9 +33,11 @@ const Recipe = () => {
                 component={'img'}
                 src={recipe?.image_url}
                 sx={{ height: '500px', p: 2, objectFit: 'contain' }}
+                loading={'lazy'}
             />
             <Box sx={{ p: 2 }}>
                 <Button
+                    aria-label="Back"
                     startIcon={<ArrowBackIcon />}
                     variant="contained"
                     sx={{

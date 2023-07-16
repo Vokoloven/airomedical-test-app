@@ -9,7 +9,9 @@ const Recipes = () => {
     const { data, loading } = useBeerStore((state) => state);
     const [selectedData, setSelectedData] = useState([]);
     const [deletedData, setDeletedData] = useState([]);
-    useRecipeData(selectedData, deletedData);
+    useRecipeData(selectedData, deletedData, setDeletedData);
+
+
 
     useEffect(() => {
         setSelectedData(data);

@@ -54,6 +54,7 @@ const BasicAppBar = () => {
                         </Box>
                         {isActiveButton && (
                             <Button
+                                aria-label="Delete"
                                 variant="contained"
                                 sx={{
                                     bgcolor: red[500],
