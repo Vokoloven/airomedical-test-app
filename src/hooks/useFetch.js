@@ -8,7 +8,7 @@ export const useFetch = () => {
     const isFirstRender = useRef(true);
 
     useEffect(() => {
-        if (!isFirstRender.current && data?.length === 0) {
+        if (data?.length === 0) {
             setPage((prevPage) => prevPage + 1);
         }
     }, [data?.length]);
