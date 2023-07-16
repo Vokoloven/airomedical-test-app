@@ -25,7 +25,7 @@ Anyway don't hesitate to contact me, you can find my contacts [here](https://git
 
 ---
 
-### Additional options
+### Test task
 
 -   [x] General tasks completed
 -   [ ] Additional options completed
