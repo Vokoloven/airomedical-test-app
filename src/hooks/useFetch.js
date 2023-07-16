@@ -21,6 +21,7 @@ export const useFetch = () => {
 
     useEffect(() => {
         setLoading({ status: 'pending', errorMessage: '' });
+
         const getData = async (page) => {
             try {
                 const data = await getApiData(page);
@@ -39,15 +40,12 @@ export const useFetch = () => {
         if (isFirstRender.current) {
             getData({ page });
 
-            return () => {
-                isFirstRender.current = false;
-            };
+            isFirstRender.current = false;
         }
 
         if (!isFirstRender.current && page > 1) {
+            console.log('Test');
             getData({ page });
         }
     }, [page, setData, setLoading]);
-
-    console.log(data);
 };
