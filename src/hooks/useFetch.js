@@ -44,7 +44,6 @@ export const useFetch = () => {
         }
 
         if (!isFirstRender.current && page > 1) {
-            console.log('Test');
             getData({ page });
         }
     }, [page, setData, setLoading]);
