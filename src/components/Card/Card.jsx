@@ -30,7 +30,7 @@ export const ActionAreaCard = ({
                         height="140"
                         image={image_url}
                         alt={'beer'}
-                        sx={{ objectFit: 'contain' }}
+                        sx={{ objectFit: 'contain', width: '345px' }}
                         loading={'lazy'}
                     />
                     <CardContent>
